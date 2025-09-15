@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cumpleaños Yalú Rosaura</title>
+  <link rel="stylesheet" href="CSS/estilo.css">
+  <!--letra de cumple-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+ <!--letra de la info-->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+  <!-- Pantalla inicial -->
+  <div id="inicio" class="pantalla">
+    <img src="https://i.gifer.com/av.gif" alt="gif de gato" width="50%">
+    <h2>Ingresa el nombre</h2>
+    <input type="text" id="nombre" placeholder="Escribe aquí...">
+    <br>
+    <button onclick="verificar()">Entrar</button>
+  </div>
+
+  <!-- Pantalla cumpleaños -->
+  <div id="cumple">
+    <div class="conteiner">
+     <h1>🎉 ¡Feliz Cumpleaños Yalú Rosaura! 🎂</h1>
+     <p>Quién diría que odiar Lima sería el inicio de una amistad tan bonita. Ese día, mientras renegabas del mundo, yo solo quería hablar con alguien… y el universo decidió que fueras tú, jaja para tu mala suerte. Hoy celebro tu vida, tu risa contagiosa, tu madurez y lo buena que eres manejando ciertas situaciones, y tus renegadas, que ya son parte del encanto. Feliz cumpleaños, Yalu. Gracias por existir justo como eres✨</p>
+    </div>
+    
+    <img src="multimedia/yalu.jpg" alt="Foto de Yalú" width="30%">
+
+    <button onclick="mostrarSorpresa()">🎁 Abrir Regalo</button>
+
+    <div id="sorpresa">
+      <h2>💜 ¡Este regalo es solo para ti! 💜</h2>
+      <img src="https://i.gifer.com/4zb2.gif" alt="Regalo sorpresa" width="30%">
+      <p>Porque eres única y especial, ¡disfruta tu día al máximo! 🌟</p>
+    </div>
+
+    <!-- Música -->
+    <audio id="musica" loop>
+      <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Confeti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function verificar() {
+      let nombre = document.getElementById("nombre").value.trim();
+      if (nombre === "Yalú Rosaura") {
+        document.getElementById("inicio").style.display = "none";
+        document.getElementById("cumple").style.display = "flex";
+        document.getElementById("musica").play();
+        lanzarConfeti();
+      } else {
+        alert("❌ Solo Yalú Rosaura puede ingresar");
+      }
+    }
+
+    function lanzarConfeti() {
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+    }
+    setInterval(lanzarConfeti, 1500);
+
+    function mostrarSorpresa() {
+      document.getElementById("sorpresa").style.display = "block";
+      lanzarConfeti();
+    }
+  </script>
+</body>
+</html>
+
+
+
+
